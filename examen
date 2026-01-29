@@ -1,0 +1,269 @@
+📊 Aplicación Shiny – Estadística II
+1. Descripción general
+
+Esta aplicación web fue desarrollada en R Shiny como parte de la asignatura Estadística II.
+Su objetivo es facilitar el análisis estadístico inferencial mediante una interfaz gráfica interactiva, permitiendo al usuario cargar datos reales y aplicar distintos métodos estadísticos sin necesidad de escribir código adicional.
+
+La aplicación está orientada a estudiantes y docentes, y automatiza:
+
+la detección de variables,
+
+la ejecución de pruebas inferenciales,
+
+la generación de gráficos,
+
+y la interpretación básica de resultados estadísticos.
+
+2. Objetivos de la aplicación
+Objetivo general
+
+Desarrollar una aplicación Shiny que permita realizar análisis estadísticos inferenciales clásicos de forma interactiva y automatizada.
+
+Objetivos específicos
+
+Permitir la carga de archivos CSV y Excel.
+
+Detectar automáticamente variables numéricas y categóricas.
+
+Implementar pruebas estadísticas vistas en Estadística II.
+
+Generar visualizaciones claras para apoyar la interpretación.
+
+Proporcionar conclusiones automáticas basadas en el nivel de significancia.
+
+3. Requisitos del sistema
+Software necesario
+
+R (versión 4.0 o superior)
+
+RStudio o Posit Cloud
+
+Librerías utilizadas
+
+La aplicación requiere las siguientes librerías:
+
+library(shiny)
+library(ggplot2)
+library(readxl)
+library(dplyr)
+library(DT)
+
+
+Todas las librerías utilizadas son de uso libre y ampliamente empleadas en análisis estadístico.
+
+4. Estructura del proyecto
+
+El proyecto se organiza de la siguiente manera:
+
+Proyecto_Shiny_Estadistica_II/
+│
+├── app.R
+├── README.md
+├── Documentacion_Proyecto_Shiny_Estadistica_II.docx
+└── evidencia/
+    └── capturas_de_pantalla.png
+
+
+app.R: código completo de la aplicación Shiny.
+
+README.md: documentación de uso del proyecto.
+
+Documentacion_Proyecto_Shiny_Estadistica_II.docx: explicación académica del desarrollo.
+
+evidencia/: capturas del proceso de construcción y validación.
+
+5. Ejecución de la aplicación
+Opción 1: RStudio / R local
+
+Abrir el archivo app.R.
+
+Ejecutar el archivo completo.
+
+Presionar el botón Run App.
+
+Opción 2: Posit Cloud
+
+Subir el archivo app.R al proyecto.
+
+Abrir el archivo.
+
+Ejecutar con Run App.
+
+6. Uso de la aplicación (paso a paso)
+6.1 Carga de datos
+
+Ir a la pestaña “Datos”.
+
+Subir un archivo en formato .csv o .xlsx.
+
+Visualizar:
+
+número de filas,
+
+número de columnas,
+
+nombres de las variables.
+
+Explorar la tabla interactiva con desplazamiento horizontal.
+
+6.2 Nivel de significancia
+
+En el panel lateral se puede ajustar el nivel de significancia α mediante un deslizador.
+Este valor se utiliza automáticamente en todas las pruebas estadísticas.
+
+7. Métodos estadísticos implementados
+7.1 Media – Una muestra
+
+Prueba t de Student para una muestra.
+
+Permite definir:
+
+valor nulo μ₀,
+
+hipótesis alternativa.
+
+Resultados:
+
+tamaño muestral,
+
+media,
+
+desviación estándar,
+
+intervalo de confianza,
+
+estadístico t,
+
+valor p.
+
+Gráfico:
+
+histograma con media muestral y valor nulo.
+
+Conclusión automática basada en α.
+
+7.2 Media – Dos muestras
+
+Prueba t para muestras independientes.
+
+Permite:
+
+seleccionar variable numérica,
+
+variable de grupo,
+
+dos niveles específicos,
+
+asumir o no varianzas iguales.
+
+Resultados:
+
+intervalo de confianza de la diferencia,
+
+estadístico t,
+
+grados de libertad,
+
+valor p.
+
+Gráfico:
+
+boxplot comparativo por grupo.
+
+7.3 Proporción – Una muestra
+
+Prueba binomial exacta.
+
+Soporta variables binarias categóricas.
+
+Convierte automáticamente los niveles a 0 y 1.
+
+Resultados:
+
+proporción muestral,
+
+intervalo de confianza,
+
+valor p.
+
+Gráfico:
+
+barras de proporción observada.
+
+7.4 ANOVA de un factor
+
+Análisis de varianza de un factor.
+
+Requiere:
+
+variable numérica,
+
+variable categórica.
+
+Resultados:
+
+tabla ANOVA.
+
+Gráficos:
+
+boxplot por grupo,
+
+gráfico Q-Q de residuos.
+
+Análisis post-hoc:
+
+prueba de Tukey cuando se detectan diferencias significativas.
+
+Conclusión automática con advertencias sobre supuestos.
+
+8. Manejo de errores y validaciones
+
+La aplicación incorpora validaciones automáticas para:
+
+número mínimo de observaciones,
+
+selección correcta de variables,
+
+existencia de dos grupos distintos,
+
+variables binarias con exactamente dos niveles,
+
+formatos de archivo válidos.
+
+Cuando una condición no se cumple, se muestra un mensaje claro al usuario.
+
+9. Interpretación de resultados
+
+Las conclusiones automáticas indican:
+
+si se rechaza o no la hipótesis nula,
+
+el nivel de significancia utilizado,
+
+advertencias sobre los supuestos estadísticos.
+
+⚠️ Nota importante
+Las conclusiones deben interpretarse considerando:
+
+normalidad,
+
+independencia,
+
+homogeneidad de varianzas,
+
+calidad de los datos.
+
+10. Limitaciones
+
+La aplicación no reemplaza el análisis estadístico completo.
+
+No verifica automáticamente todos los supuestos.
+
+Está diseñada con fines académicos y educativos.
+
+11. Autor
+
+Nombre del estudiante: Dennis Tulcanaza, Esteban Faican, Isaac Cabrera
+Asignatura: Estadística II
+Institución: PUCE
+Año: 2026
