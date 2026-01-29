@@ -2,9 +2,9 @@
 1. Descripción general
 
 Esta aplicación web fue desarrollada en R Shiny como parte de la asignatura Estadística II.
-Su objetivo es facilitar el análisis estadístico inferencial mediante una interfaz gráfica interactiva, permitiendo al usuario cargar datos reales y aplicar distintos métodos estadísticos sin necesidad de escribir código adicional.
+Su objetivo es facilitar el análisis estadístico inferencial mediante una interfaz gráfica interactiva, permitiendo al usuario cargar conjuntos de datos reales y aplicar distintos métodos estadísticos sin necesidad de escribir código adicional.
 
-La aplicación está orientada a estudiantes y docentes, y automatiza:
+La aplicación automatiza:
 
 la detección de variables,
 
@@ -12,254 +12,202 @@ la ejecución de pruebas inferenciales,
 
 la generación de gráficos,
 
-y la interpretación básica de resultados estadísticos.
+y la emisión de conclusiones estadísticas básicas.
 
-2. Objetivos de la aplicación
+2. Acceso a la aplicación en línea
+
+La aplicación se encuentra desplegada públicamente en shinyapps.io y puede ser utilizada desde cualquier navegador web a través del siguiente enlace:
+
+🔗 Enlace a la aplicación:
+https://f4tw0l-dennis-tulcanaza.shinyapps.io/mi_app/
+
+No es necesario instalar R ni RStudio para utilizar la aplicación en su versión web.
+
+3. Objetivos de la aplicación
 Objetivo general
 
-Desarrollar una aplicación Shiny que permita realizar análisis estadísticos inferenciales clásicos de forma interactiva y automatizada.
+Desarrollar una aplicación interactiva que permita realizar análisis estadísticos inferenciales clásicos de forma clara, automática y reproducible.
 
 Objetivos específicos
 
-Permitir la carga de archivos CSV y Excel.
+Permitir la carga de archivos en formatos CSV y Excel.
 
-Detectar automáticamente variables numéricas y categóricas.
+Identificar automáticamente variables numéricas y categóricas.
 
-Implementar pruebas estadísticas vistas en Estadística II.
+Implementar pruebas estadísticas vistas en la asignatura Estadística II.
 
-Generar visualizaciones claras para apoyar la interpretación.
+Facilitar la interpretación de resultados mediante tablas y gráficos.
 
-Proporcionar conclusiones automáticas basadas en el nivel de significancia.
+Generar conclusiones automáticas basadas en el nivel de significancia seleccionado.
 
-3. Requisitos del sistema
-Software necesario
+4. Uso de la aplicación (guía paso a paso)
+Paso 1: Acceso
 
-R (versión 4.0 o superior)
+Ingresar al enlace de la aplicación.
 
-RStudio o Posit Cloud
+Esperar a que la interfaz cargue completamente.
 
-Librerías utilizadas
-
-La aplicación requiere las siguientes librerías:
-
-library(shiny)
-library(ggplot2)
-library(readxl)
-library(dplyr)
-library(DT)
-
-
-Todas las librerías utilizadas son de uso libre y ampliamente empleadas en análisis estadístico.
-
-4. Estructura del proyecto
-
-El proyecto se organiza de la siguiente manera:
-
-Proyecto_Shiny_Estadistica_II/
-│
-├── app.R
-├── README.md
-├── Documentacion_Proyecto_Shiny_Estadistica_II.docx
-└── evidencia/
-    └── capturas_de_pantalla.png
-
-
-app.R: código completo de la aplicación Shiny.
-
-README.md: documentación de uso del proyecto.
-
-Documentacion_Proyecto_Shiny_Estadistica_II.docx: explicación académica del desarrollo.
-
-evidencia/: capturas del proceso de construcción y validación.
-
-5. Ejecución de la aplicación
-Opción 1: RStudio / R local
-
-Abrir el archivo app.R.
-
-Ejecutar el archivo completo.
-
-Presionar el botón Run App.
-
-Opción 2: Posit Cloud
-
-Subir el archivo app.R al proyecto.
-
-Abrir el archivo.
-
-Ejecutar con Run App.
-
-6. Uso de la aplicación (paso a paso)
-6.1 Carga de datos
+Paso 2: Carga de datos
 
 Ir a la pestaña “Datos”.
 
-Subir un archivo en formato .csv o .xlsx.
+Cargar un archivo en formato .csv o .xlsx.
 
-Visualizar:
+La aplicación mostrará automáticamente:
 
 número de filas,
 
 número de columnas,
 
-nombres de las variables.
+nombres de las variables,
 
-Explorar la tabla interactiva con desplazamiento horizontal.
+una tabla interactiva con los datos.
 
-6.2 Nivel de significancia
+📌 La tabla permite desplazamiento horizontal y paginación.
 
-En el panel lateral se puede ajustar el nivel de significancia α mediante un deslizador.
-Este valor se utiliza automáticamente en todas las pruebas estadísticas.
+Paso 3: Selección del nivel de significancia
 
-7. Métodos estadísticos implementados
-7.1 Media – Una muestra
+En el panel lateral, seleccionar el nivel de significancia (α) mediante el deslizador.
 
-Prueba t de Student para una muestra.
+Este valor se utilizará en todas las pruebas estadísticas de la aplicación.
 
-Permite definir:
+Paso 4: Selección del análisis estadístico
 
-valor nulo μ₀,
+El usuario puede elegir entre las siguientes pestañas:
 
-hipótesis alternativa.
+🔹 Media – Una muestra
 
-Resultados:
+Seleccionar una variable numérica.
 
-tamaño muestral,
+Ingresar el valor nulo μ₀.
 
-media,
+Elegir la hipótesis alternativa.
 
-desviación estándar,
+La aplicación calcula automáticamente la prueba t y muestra:
 
-intervalo de confianza,
+tabla de resultados,
 
-estadístico t,
+histograma,
 
-valor p.
+conclusión estadística.
 
-Gráfico:
+🔹 Media – Dos muestras
 
-histograma con media muestral y valor nulo.
+Seleccionar una variable numérica y una variable de grupo.
 
-Conclusión automática basada en α.
+Elegir dos grupos específicos.
 
-7.2 Media – Dos muestras
+Definir si se asumen varianzas iguales.
 
-Prueba t para muestras independientes.
+Se presentan:
 
-Permite:
+prueba t para muestras independientes,
 
-seleccionar variable numérica,
+boxplot comparativo,
 
-variable de grupo,
+conclusión automática.
 
-dos niveles específicos,
+🔹 Proporción – Una muestra
 
-asumir o no varianzas iguales.
+Seleccionar una variable binaria.
 
-Resultados:
+Definir la proporción nula p₀.
 
-intervalo de confianza de la diferencia,
+La aplicación ejecuta una prueba binomial exacta.
 
-estadístico t,
+Se muestran:
 
-grados de libertad,
-
-valor p.
-
-Gráfico:
-
-boxplot comparativo por grupo.
-
-7.3 Proporción – Una muestra
-
-Prueba binomial exacta.
-
-Soporta variables binarias categóricas.
-
-Convierte automáticamente los niveles a 0 y 1.
-
-Resultados:
-
-proporción muestral,
+proporción observada,
 
 intervalo de confianza,
 
-valor p.
+gráfico de barras,
 
-Gráfico:
+decisión estadística.
 
-barras de proporción observada.
+🔹 ANOVA
 
-7.4 ANOVA de un factor
+Seleccionar una variable numérica y una categórica.
 
-Análisis de varianza de un factor.
+Se realiza un ANOVA de un factor.
 
-Requiere:
+Resultados mostrados:
 
-variable numérica,
+tabla ANOVA,
 
-variable categórica.
-
-Resultados:
-
-tabla ANOVA.
-
-Gráficos:
-
-boxplot por grupo,
+boxplots,
 
 gráfico Q-Q de residuos.
 
-Análisis post-hoc:
+Si existen diferencias significativas, se aplica la prueba post-hoc de Tukey.
 
-prueba de Tukey cuando se detectan diferencias significativas.
+5. Resultados que genera la aplicación
 
-Conclusión automática con advertencias sobre supuestos.
+Dependiendo del análisis seleccionado, la aplicación produce:
 
-8. Manejo de errores y validaciones
+Tablas estadísticas con:
 
-La aplicación incorpora validaciones automáticas para:
+estadísticos de prueba,
+
+intervalos de confianza,
+
+valores p.
+
+Gráficos descriptivos e inferenciales.
+
+Conclusiones automáticas indicando:
+
+si se rechaza o no la hipótesis nula,
+
+el nivel de significancia utilizado.
+
+⚠️ Advertencia:
+Las conclusiones dependen del cumplimiento de los supuestos estadísticos y de la calidad de los datos cargados.
+
+6. Manejo de errores y validaciones
+
+La aplicación incluye validaciones automáticas para:
 
 número mínimo de observaciones,
 
 selección correcta de variables,
 
-existencia de dos grupos distintos,
-
 variables binarias con exactamente dos niveles,
+
+selección de grupos distintos,
 
 formatos de archivo válidos.
 
 Cuando una condición no se cumple, se muestra un mensaje claro al usuario.
 
-9. Interpretación de resultados
+7. Evidencia del proceso de creación de la aplicación
 
-Las conclusiones automáticas indican:
+Con el fin de documentar de manera clara y ordenada el proceso de diseño, construcción, prueba y validación de la aplicación Shiny, se elaboró un material visual complementario en la plataforma Canva.
 
-si se rechaza o no la hipótesis nula,
+En dicho recurso se presentan evidencias del desarrollo del proyecto, incluyendo:
 
-el nivel de significancia utilizado,
+etapas de construcción de la aplicación,
 
-advertencias sobre los supuestos estadísticos.
+fragmentos relevantes del código,
 
-⚠️ Nota importante
-Las conclusiones deben interpretarse considerando:
+pruebas realizadas con distintos conjuntos de datos,
 
-normalidad,
+validaciones y manejo de errores,
 
-independencia,
+funcionamiento final de la aplicación en línea.
 
-homogeneidad de varianzas,
+Este material permite visualizar el proceso completo de desarrollo y respalda el correcto funcionamiento de la aplicación.
 
-calidad de los datos.
+🔗 Enlace a la evidencia visual en Canva
+https://www.canva.com/design/DAG_wxo2ybM/Gd-KtU8XIosCS2CAVQGkzg/edit?utm_content=DAG_wxo2ybM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-10. Limitaciones
+8. Limitaciones de la aplicación
 
-La aplicación no reemplaza el análisis estadístico completo.
+La aplicación tiene fines académicos y educativos.
 
-No verifica automáticamente todos los supuestos.
+No reemplaza un análisis estadístico profesional completo.
 
-Está diseñada con fines académicos y educativos.
+No verifica automáticamente todos los supuestos estadísticos.
 
 11. Autor
 
